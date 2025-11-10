@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston Housing Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🏡 Boston Housing Price Prediction</h1>
+        <form action="{{ url_for('predict') }}" method="post">
+            <div class="grid-container">
+                <div><label for="CRIM">CRIM:</label><input id="CRIM" type="number" step="any" name="CRIM" placeholder="0.03" required></div>
+                <div><label for="ZN">ZN:</label><input id="ZN" type="number" step="any" name="ZN" placeholder="18.0" required></div>
+                <div><label for="INDUS">INDUS:</label><input id="INDUS" type="number" step="any" name="INDUS" placeholder="2.31" required></div>
+                <div><label for="CHAS">CHAS:</label><input id="CHAS" type="number" step="any" name="CHAS" placeholder="0 or 1" min="0" max="1" required></div>
+                <div><label for="NOX">NOX:</label><input id="NOX" type="number" step="any" name="NOX" placeholder="0.538" required></div>
+                <div><label for="RM">RM:</label><input id="RM" type="number" step="any" name="RM" placeholder="6.575" required></div>
+                <div><label for="AGE">AGE:</label><input id="AGE" type="number" step="any" name="AGE" placeholder="65.2" required></div>
+                <div><label for="DIS">DIS:</label><input id="DIS" type="number" step="any" name="DIS" placeholder="4.09" required></div>
+                <div><label for="RAD">RAD:</label><input id="RAD" type="number" step="any" name="RAD" placeholder="1" required></div>
+                <div><label for="TAX">TAX:</label><input id="TAX" type="number" step="any" name="TAX" placeholder="296" required></div>
+                <div><label for="PTRATIO">PTRATIO:</label><input id="PTRATIO" type="number" step="any" name="PTRATIO" placeholder="15.3" required></div>
+                <div><label for="B">B:</label><input id="B" type="number" step="any" name="B" placeholder="396.9" required></div>
+                <div><label for="LSTAT">LSTAT:</label><input id="LSTAT" type="number" step="any" name="LSTAT" placeholder="4.98" required></div>
+            </div>
+
+            <button type="submit" class="btn">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+            <h2 class="result">{{ prediction_text }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
